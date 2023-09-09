@@ -1,32 +1,12 @@
-import Swal from "sweetalert2";
 const Paciente = ({paciente, setPaciente, eliminarPaciente}) => {
-
-    const { nombre, propietario, email, fecha, sintomas, id } = paciente
+    const { nombre, propietario, email, fecha, sintomas, id } = paciente
 
     const handleEliminar = () => {
-        Swal.fire({
-            title: 'Desea eliminar este paciente?',
-            text: "Esta accion no podra revertirse",
-            icon: 'error',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Si, Eliminar!',
-            cancelButtonText: "Cancelar"
-            }).then((result) => {
-            if (result.isConfirmed) {
-                Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
-                'success'
-                )
-                eliminarPaciente(id)
-            }
-            })
+        const respuesta = confirm('Deseas eliminar este paciente?');
 
-        //if(respuesta) {
-            //eliminarPaciente(id)
-        //}
+        if(respuesta) {
+            eliminarPaciente(id)
+        }
     }
 
     return (
