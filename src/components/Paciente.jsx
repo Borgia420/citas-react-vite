@@ -4,13 +4,14 @@ const Paciente = ({paciente, setPaciente, eliminarPaciente}) => {
 
     const handleEliminar = () => {
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
+            title: 'Desea eliminar este paciente?',
+            text: "Esta accion no podrarevertirse!",
+            icon: 'error',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+            confirmButtonText: 'Si Eliminar!',
+            cancelButtonText: "Cancelar"
             }).then((result) => {
             if (result.isConfirmed) {
                 eliminarPaciente(id)
